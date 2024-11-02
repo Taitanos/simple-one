@@ -1,11 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Header} from "./layout/Header";
+import {Navbar} from "./layout/Navbar";
+import {Main} from "./layout/Main";
 
 function App() {
   return (
-    <div className="App">
-      тут будет тестовое задание
+    <div className="app-wrapper">
+        <Header/>
+        <Navbar/>
+        <Main/>
     </div>
   );
 }
