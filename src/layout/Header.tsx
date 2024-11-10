@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import logo from "./../assets/images/Logo.webp";
 import Ava from "./../assets/images/Persona-image.webp";
-import {Icon} from "../components/icon/Icon";
-import {Input} from "../components/icon/Input";
+import {Input} from "../components/input/Input";
+import {Button} from "../components/button/Button";
 
 export const Header: React.FC = () => {
     return (
@@ -21,9 +21,7 @@ export const Header: React.FC = () => {
                         </Name>
                     </Profile>
                 </LoginInfo>
-                <Setting>
-                    <Icon iconId={"setting"} viewBox={"-6 -6 32 32"} height={"32"} width={"32"}/>
-                </Setting>
+                <Button iconId={"setting"} viewBox={"-2 -3 24 24"} height={"24"} width={"24"} margin={'0'}/>
             </Info>
         </HeaderStyled>
     )
@@ -45,6 +43,7 @@ const Logo = styled.div`
 `
 
 const Info = styled.div`
+    margin-right: 16px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -77,12 +76,4 @@ const Name = styled.span`
     font-size: 14px;
     line-height: 143%;
     color: #2e3238;
-`
-
-const Setting = styled.div`
-    border: 1px solid #d5d8dd;
-    border-radius: 4px;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
 `
