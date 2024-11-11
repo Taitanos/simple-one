@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
             </Logo>
             <Info>
                 <LoginInfo>
-                    <Input/>
+                    <Input iconId={"search"}/>
                     <Profile>
                         <Avatar src={Ava} alt={"avatar"}/>
                         <Name>
