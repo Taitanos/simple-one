@@ -1,5 +1,6 @@
 .app-wrapper {
-  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
   display: grid;
   grid-template-areas: "h h" "n c";
   grid-template-rows: 49px 1fr;

@@ -28,6 +28,8 @@ export const Header: React.FC = () => {
 }
 
 const HeaderStyled = styled.div`
+    width: 100%;
+    max-width: 1920px;
     grid-area: h;
     display: flex;
     justify-content: space-between;
