@@ -1,31 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "./../assets/images/Logo.webp";
-import Ava from "./../assets/images/Persona-image.webp";
-import {Input} from "../components/input/Input";
-import {Button} from "../components/button/Button";
+import Ava from "../../assets/images/Persona-image.webp";
+import {Button} from "../../components/button/Button";
 
-export const Header: React.FC = () => {
+export const TabletHeader: React.FC = () => {
     return (
         <HeaderStyled>
             <Logo>
-                <img src={logo} alt={"logo"}/>
+                <Button margin={"16px"} iconId={"sidebar"} width={"24"} height={"24"} viewBox={"0 0 24 24"}
+                        hasBorder={false}/>
             </Logo>
             <Info>
                 <LoginInfo>
-                    <Input iconId={"search"}/>
                     <Profile>
                         <Avatar src={Ava} alt={"avatar"}/>
-                        <Name>
-                            Максим Галактионов
-                        </Name>
+                        <Name>Максим Галактионов</Name>
                     </Profile>
                 </LoginInfo>
-                <Button iconId={"setting"} viewBox={"-2 -3 24 24"} height={"24"} width={"24"} margin={'0'}/>
+                <Button iconId={"setting"} viewBox={"-2 -3 24 24"} height={"24"} width={"24"} margin={"0"}/>
             </Info>
         </HeaderStyled>
-    )
-}
+    );
+};
 
 const HeaderStyled = styled.div`
     width: 100%;
@@ -40,6 +36,7 @@ const HeaderStyled = styled.div`
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background: #fff;
 `
+
 const Logo = styled.div`
     padding: 12px 0 12px 16px;
 `
@@ -56,8 +53,9 @@ const LoginInfo = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 5px
+    gap: 5px;
 `
+
 
 const Profile = styled.div`
     display: flex;

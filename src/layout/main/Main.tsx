@@ -1,10 +1,9 @@
-import React from 'react';
-import './App.css';
-import {Header} from "./layout/header/Header";
-import {Navbar} from "./layout/navbar/Navbar";
-import {Main} from "./layout/main/Main";
+import React from "react";
+import styled from "styled-components";
+import {MobileMain} from "./MobileMain";
+import {DesktopMain} from "./DesktopMain";
 
-function App() {
+export const Main: React.FC = () => {
 
     const [width, setWidth] = React.useState(window.innerWidth)
     const breakpoint = 768
@@ -17,12 +16,13 @@ function App() {
     }, [])
 
     return (
-        <div className="app-wrapper">
-            <Header/>
-            {width >= breakpoint && <Navbar/>}
-            <Main/>
-        </div>
+        <MainStyled>
+            {width < breakpoint ? <MobileMain/> : <DesktopMain/>}
+        </MainStyled>
     );
-}
+};
 
-export default App;
+
+const MainStyled = styled.div`
+
+`

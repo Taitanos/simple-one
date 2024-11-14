@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import {Button} from "../components/button/Button";
-import {Input} from "../components/input/Input";
-import {Icon} from "../components/icon/Icon";
+import {Button} from "../../components/button/Button";
+import {Input} from "../../components/input/Input";
+import {Icon} from "../../components/icon/Icon";
 
 interface navMenuProps {
     id: number
     title: string
 }
 
-export const Navbar: React.FC = () => {
+export const DesktopMenu: React.FC = () => {
 
     const navMenu: navMenuProps[] = [
         {id: 1, title: "Моя работа"},
@@ -64,7 +64,6 @@ const NavbarStyled = styled.div`
     position: sticky;
     height: 100vh;
     border-right: 1px solid #d5d8dd;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background: #fff;
 `
 

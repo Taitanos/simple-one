@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import {Button} from "../button/Button";
+import {User} from "../user/User";
+import {users} from "../../data/Users";
+import {Icon} from "../icon/Icon";
 
 export const Form: React.FC = () => {
+
+    const usersList = users.map(user => <User key={user.id} name={user.name} showIcon={true}/>)
+
     return (
         <FormStyled>
             <FormTask>STSK0004783 На инциденте, запросе, проблеме, в статусе закрыто некоторые поля остаются
@@ -46,7 +52,12 @@ export const Form: React.FC = () => {
                 <ElementTask>
                     <ElementTaskName>Ответственный</ElementTaskName>
                     <ElementTaskForm>
-                        <InputForm type={"text"} value={"Константин Константинопольский"}/>
+                        <UsersContainer>
+                            <UserWrapper>
+                                <User name={"Константин Константинопольский"} showIcon={false}/>
+                            </UserWrapper>
+                            <Icon iconId={"microClose"} viewBox={"-5 -4 24 24"}/>
+                        </UsersContainer>
                         <Button margin={"0"} iconId={"plus"} viewBox={"-2 -4 24 24"}/>
                         <Button margin={"0"} iconId={"searchTask"} viewBox={"-2 -4 24 24"}/>
                     </ElementTaskForm>
@@ -54,7 +65,12 @@ export const Form: React.FC = () => {
                 <ElementTask>
                     <ElementTaskName>Группа</ElementTaskName>
                     <ElementTaskForm>
-                        <InputForm type={"text"} value={"Support Group"}/>
+                        <UsersContainer>
+                            <UserWrapper>
+                                <User name={"Support Group"} showIcon={false}/>
+                            </UserWrapper>
+                            <Icon iconId={"microClose"} viewBox={"-5 -4 24 24"}/>
+                        </UsersContainer>
                         <Button margin={"0"} iconId={"plus"} viewBox={"-2 -4 24 24"}/>
                         <Button margin={"0"} iconId={"searchTask"} viewBox={"-2 -4 24 24"}/>
                     </ElementTaskForm>
@@ -70,8 +86,14 @@ export const Form: React.FC = () => {
                 <ElementTask>
                     <ElementTaskName>Согласующие</ElementTaskName>
                     <ElementTaskForm>
-                        <InputForm type={"text"}
-                                   value={"Андрей Пивоваров, Максим Галактионов, Алла Лин, Константин Константинопольский Константинович, Игорь Иванченко, Юлия Эйчаровна, Артем Подпрыгайко-Саппортов, Илья Вазнец, Михаил Вортенов, Наталья Нашевна, Евгения Итамовна, Алиса Киральчук"}/>
+                        <UsersContainer>
+                            <UserWrapper>
+                                {usersList}
+                            </UserWrapper>
+                            <IconWrapper>
+                                <Icon iconId={"microClose"} viewBox={"-5 -4 20 20"}/>
+                            </IconWrapper>
+                        </UsersContainer>
                         <Button margin={"0"} iconId={"plus"} viewBox={"-2 -4 24 24"}/>
                         <Button margin={"0"} iconId={"searchTask"} viewBox={"-2 -4 24 24"}/>
                     </ElementTaskForm>
@@ -97,7 +119,12 @@ export const Form: React.FC = () => {
                 <ElementTask>
                     <ElementTaskName>Кем открыто</ElementTaskName>
                     <ElementTaskForm>
-                        <InputForm type={"text"} value={"Андрей Пивоваров"}/>
+                        <UsersContainer>
+                            <UserWrapper>
+                                <User name={"Андрей Пивоваров"} showIcon={false}/>
+                            </UserWrapper>
+                            <Icon iconId={"microClose"} viewBox={"-5 -1 20 20"}/>
+                        </UsersContainer>
                         <Button margin={"0"} iconId={"plus"} viewBox={"-2 -4 24 24"}/>
                         <Button margin={"0"} iconId={"searchTask"} viewBox={"-2 -4 24 24"}/>
                     </ElementTaskForm>
@@ -105,7 +132,12 @@ export const Form: React.FC = () => {
                 <ElementTask>
                     <ElementTaskName>Кем создано</ElementTaskName>
                     <ElementTaskForm>
-                        <InputForm type={"text"} value={"Андрей Пивоваров"}/>
+                        <UsersContainer>
+                            <UserWrapper>
+                                <User name={"Андрей Пивоваров"} showIcon={false}/>
+                            </UserWrapper>
+                            <Icon iconId={"microClose"} viewBox={"-5 -1 20 20"}/>
+                        </UsersContainer>
                         <Button margin={"0"} iconId={"plus"} viewBox={"-2 -4 24 24"}/>
                         <Button margin={"0"} iconId={"searchTask"} viewBox={"-2 -4 24 24"}/>
                     </ElementTaskForm>
@@ -119,13 +151,9 @@ export const Form: React.FC = () => {
 const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
-    //width: 100%;
-    //max-width: 1546px;
 `
 
 const FormTask = styled.h2`
-    white-space-collapse: collapse;
-    //white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
@@ -138,13 +166,16 @@ const FormElement = styled.div`
     gap: 16px;
     display: flex;
     flex-direction: row;
+    
+    @media (max-width: 769px) {
+        flex-direction: column;
+    }
 `
 
 const ElementTask = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    //gap: 16px;
 `
 
 const ElementTaskForm = styled.div`
@@ -166,4 +197,29 @@ const InputForm = styled.input`
     font-size: 14px;
     background: #fcfcfd;
     flex-grow: 1;
+`
+
+const UsersContainer = styled.div`
+    border: 1px solid #d5d8dd;
+    border-radius: 4px;
+    padding: 3px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ 
+`
+
+const UserWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+    gap: 4px;
+`
+
+const IconWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
 `
