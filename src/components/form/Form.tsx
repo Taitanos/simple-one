@@ -15,6 +15,58 @@ export const Form: React.FC = () => {
                     <InputForm type={"text"} value={"Новая"}/>
                 </ElementTask>
             </FormElement>
+            <FormElement>
+                <ElementTask>
+                    <ElementTaskName>Описание</ElementTaskName>
+                    <InputForm type={"text"} value={""}/>
+                </ElementTask>
+                <ElementTask>
+                    <ElementTaskName>Продукт</ElementTaskName>
+                    <InputForm type={"text"} value={"Platform"}/>
+                </ElementTask>
+            </FormElement>
+            <FormElement>
+                <ElementTask>
+                    <ElementTaskName>Ответственный</ElementTaskName>
+                    <InputForm type={"text"} value={"Константин Константинопольский"}/>
+                </ElementTask>
+                <ElementTask>
+                    <ElementTaskName>Группа</ElementTaskName>
+                    <InputForm type={"text"} value={"Support Group"}/>
+                </ElementTask>
+            </FormElement>
+            <FormElement>
+                <ElementTask>
+                    <ElementTaskName>Комментарии</ElementTaskName>
+                    <InputForm type={"text"} value={""}/>
+                </ElementTask>
+            </FormElement>
+            <FormElement>
+                <ElementTask>
+                    <ElementTaskName>Согласующие</ElementTaskName>
+                    <InputForm type={"text"} value={"Андрей Пивоваров, Максим Галактионов, Алла Лин, Константин Константинопольский Константинович, Игорь Иванченко, Юлия Эйчаровна, Артем Подпрыгайко-Саппортов, Илья Вазнец, Михаил Вортенов, Наталья Нашевна, Евгения Итамовна, Алиса Киральчук"}/>
+                </ElementTask>
+            </FormElement>
+            <FormElement>
+                <ElementTask>
+                    <ElementTaskName>Когда открыто</ElementTaskName>
+                    <InputForm type={"text"} value={""}/>
+                </ElementTask>
+                <ElementTask>
+                    <ElementTaskName>Когда создано</ElementTaskName>
+                    <InputForm type={"text"} value={"22.10.2024"}/>
+                </ElementTask>
+            </FormElement>
+            <FormElement>
+                <ElementTask>
+                    <ElementTaskName>Кем открыто</ElementTaskName>
+                    <InputForm type={"text"} value={"Андрей Пивоваров"}/>
+                </ElementTask>
+                <ElementTask>
+                    <ElementTaskName>Кем создано</ElementTaskName>
+                    <InputForm type={"text"} value={"Андрей Пивоваров"}/>
+                </ElementTask>
+            </FormElement>
         </FormStyled>
     )
 }
@@ -33,7 +85,6 @@ const FormTask = styled.h2`
 
 const FormElement = styled.div`
     width: 100%;
-    //max-width: 1534px;
     gap: 16px;
     display: flex;
     flex-direction: row;
