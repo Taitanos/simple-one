@@ -7,22 +7,27 @@ export const Main: React.FC = () => {
         <MainStyled>
             <HeaderTask>
                 <span>Подзадача</span>
-                <button>Создать</button>
+                <ButtonForm>Создать</ButtonForm>
             </HeaderTask>
             <CreatedTask>
                 <ButtonForm>Сохранить</ButtonForm>
                 <ButtonForm>Сохранить и выйти</ButtonForm>
             </CreatedTask>
-            <Form/>
+            <FormContain>
+                <Form/>
+            </FormContain>
+
         </MainStyled>
     );
 };
 
+
 const MainStyled = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 1566px;
+    display: grid;
+    grid-template-areas: "t x" "m m";
+    grid-template-rows: 45px 1fr;
+    //width: 100%;
+    max-width: 1546px;
     padding: 16px 8px;
     border-right: 1px solid #d5d8dd;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -75,61 +80,31 @@ const MainStyled = styled.div`
 `
 
 const HeaderTask = styled.div`
-    height: 32px;
-    flex: 1 1 50%;
-   // padding: 20px;
-    box-sizing: border-box;
-    order: 0;
+    grid-area: t;
+    display: flex;
+    height: 64px;
+   /* width: 100%;
+    max-width: 752px;*/
     justify-content: flex-start;
+    align-items: center;
 `
 
 const CreatedTask = styled.div`
-    height: 32px;
-    //display: flex;
-   flex: 1 1 50%;
-    //padding: 20px;
-    box-sizing: border-box;
-    order: 0;
+    grid-area: x;
+    display: flex;
+    height: 64px;
+    /*width: 100%;
+    max-width: 752px;*/
     justify-content: flex-end;
+    align-items: center;
+`
+const FormContain = styled.div`
+    grid-area: m;
+    width: 100%;
+    max-width: 1546px;
 `
 
-const FormContain = styled.div`
-    flex-basis: 100%;
-    order: 1;
-`
 const ButtonForm = styled.button`
+    margin: 5px;
     height: 32px;
 `
-
-
-/*
-import React from "react";
-import styled from "styled-components";
-import {Form} from "../components/form/Form";
-
-export const Main : React.FC = () => {
-    return (
-        <MainStyled>
-            <div className={"box1"}>
-                <span>Подзадача</span>
-                <button>Создать</button>
-            </div>
-            <div className={"box2"}>
-                <button>Сохранить</button>
-                <button>Сохранить и выйти</button>
-            </div>
-            <div>
-                <Form/>
-            </div>
-        </MainStyled>
-    )
-}
-
-const MainStyled = styled.div`
-    width: 100%;
-    max-width: 1566px;
-    padding: 16px 8px;;
-    border-right: 1px solid #d5d8dd;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    background: #fff;
-`*/
