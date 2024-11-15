@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/simple-one/static/css/main.220b6ce9.css",
+    "main.js": "/simple-one/static/js/main.6903c231.js",
+    "static/js/453.1454cb52.chunk.js": "/simple-one/static/js/453.1454cb52.chunk.js",
+    "static/media/icon-sprite.svg": "/simple-one/static/media/icon-sprite.5ee804281cb11d45fdbad8c0b503cd89.svg",
+    "static/media/Persona-image.webp": "/simple-one/static/media/Persona-image.8808821528f496dfc307.webp",
+    "static/media/Logo.webp": "/simple-one/static/media/Logo.03267ae11368ad2d16dc.webp",
+    "index.html": "/simple-one/index.html",
+    "main.220b6ce9.css.map": "/simple-one/static/css/main.220b6ce9.css.map",
+    "main.6903c231.js.map": "/simple-one/static/js/main.6903c231.js.map",
+    "453.1454cb52.chunk.js.map": "/simple-one/static/js/453.1454cb52.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.220b6ce9.css",
+    "static/js/main.6903c231.js"
+  ]
+}
