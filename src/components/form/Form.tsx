@@ -5,7 +5,11 @@ import {User} from "../user/User";
 import {users} from "../../data/Users";
 import {Icon} from "../icon/Icon";
 
-export const Form: React.FC = () => {
+type FormType = {
+    hasColumn: boolean
+}
+
+export const Form: React.FC<FormType> = ({hasColumn}) => {
 
     const usersList = users.map(user => <User key={user.id} name={user.name} showIcon={true}/>)
 
@@ -154,18 +158,18 @@ const FormStyled = styled.form`
 `
 
 const FormTask = styled.h2`
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /*overflow: hidden;
+    text-overflow: ellipsis;*/
     width: 100%;
     display: block;
     font-size: 24px;
 `
 
-const FormElement = styled.div`
+const FormElement = styled.div<{ column?: boolean }>`
     width: 100%;
     gap: 16px;
     display: flex;
-    flex-direction: row;
+    flex-direction: ${({ column }) => (column ? "column" : "row")};
     
     @media (max-width: 769px) {
         flex-direction: column;

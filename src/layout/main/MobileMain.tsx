@@ -3,7 +3,11 @@ import styled from "styled-components";
 import {Form} from "../../components/form/Form";
 import {Icon} from "../../components/icon/Icon";
 
-export const MobileMain: React.FC = () => {
+type MobileMain = {
+    openTask: ()=> void
+}
+
+export const MobileMain: React.FC<MobileMain> = ({openTask}) => {
     return (
         <MainStyled>
             <HeaderTask>
@@ -13,11 +17,11 @@ export const MobileMain: React.FC = () => {
                 <Icon iconId={"collapse"}/>
             </CreatedTask>
             <FormContain>
-                <Form/>
+                <Form hasColumn={true}/>
             </FormContain>
         </MainStyled>
-    );
-};
+    )
+}
 
 
 const MainStyled = styled.div`
@@ -29,6 +33,7 @@ const MainStyled = styled.div`
     border-right: 1px solid #d5d8dd;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background: #fff;
+    overflow-y: auto;
 `
 
 const HeaderTask = styled.div`

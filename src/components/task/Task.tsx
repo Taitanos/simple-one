@@ -1,38 +1,53 @@
 import React from "react";
 import styled from "styled-components";
-import {Form} from "../../components/form/Form";
+import { Form } from "../form/Form";
 
-type DesktopMainType = {
-    openTask: ()=> void
-}
+type TaskProps = {
+    onClick: () => void
+};
 
-export const DesktopMain: React.FC<DesktopMainType> = ({openTask}) => {
+export const Task: React.FC<TaskProps> = ({ onClick }) => {
     return (
         <MainStyled>
             <HeaderTask>
                 <span>Подзадача</span>
-                <ButtonForm onClick={openTask}>Создать</ButtonForm>
             </HeaderTask>
+            <FormContain>
+                <Form hasColumn={true}/>
+            </FormContain>
             <CreatedTask>
                 <ButtonFormApp>Сохранить</ButtonFormApp>
-                <ButtonForm>Сохранить и выйти</ButtonForm>
+                <ButtonForm onClick={onClick}>Сохранить и выйти</ButtonForm>
             </CreatedTask>
-            <FormContain>
-                <Form hasColumn={false}/>
-            </FormContain>
         </MainStyled>
     )
 }
 
+
 const MainStyled = styled.div`
     display: grid;
-    grid-template-areas: "t x" "m m";
-    grid-template-rows: 45px 1fr;
-    max-width: 1546px;
+    grid-template-areas:
+        "t"
+        "m"
+        "x";
+    grid-template-rows: auto 1fr auto;
+    max-width: 100%;
     padding: 16px 8px;
+    margin-top: 16px;
     border-right: 1px solid #d5d8dd;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background: #fff;
+    border-radius: 8px;
+    height: 100vh;
+    overflow-y: auto;
+
+    @media (min-width: 660px) {
+        grid-template-areas:
+            "t x"
+            "m m";
+        grid-template-rows: 45px 1fr;
+        margin-top: 0;
+    }
 `
 
 const HeaderTask = styled.div`
@@ -43,18 +58,23 @@ const HeaderTask = styled.div`
     align-items: center;
 `
 
-const CreatedTask = styled.div`
-    grid-area: x;
-    display: flex;
-    height: 64px;
-    justify-content: flex-end;
-    align-items: center;
-`
-
 const FormContain = styled.div`
     grid-area: m;
     width: 100%;
-    max-width: 1546px;
+`
+
+const CreatedTask = styled.div`
+    grid-area: x;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+
+    @media (min-width: 660px) {
+        justify-content: flex-end;
+        margin-top: 0;
+    }
 `
 
 const ButtonForm = styled.button`
@@ -74,28 +94,4 @@ const ButtonForm = styled.button`
 const ButtonFormApp = styled(ButtonForm)`
     background-color: #0078cf;
     color: #fff;
-`
-
-export const ModalOverlay = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    height: auto;
-    overflow-y: auto;
-`
-
-export const TaskWrapper = styled.div`
-    width: 100%;
-    max-width: 960px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `
